@@ -4,7 +4,7 @@
   "description": "API rest for Different Health",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node src/server.ts",
+    "start": "ts-node src/server.ts",
     "clean": "rimraf dist",
     "dev": "NODE_ENV=development nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "win-dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts --legacy-watch",

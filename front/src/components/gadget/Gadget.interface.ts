@@ -10,6 +10,7 @@ export interface GadgetInformativeData extends GadgetData {
   button?: React.ReactElement;
   buttonText?: string;
   onButtonClick?(): void;
+  onSendMessage?(message: string): Promise<string>;
 }
 
 export interface GadgetProps {
@@ -27,6 +28,7 @@ export interface GadgetProps {
 export enum GadgetTypes {
   title = "title",
   informative = "informative",
+  chatbot = "chatbot",
 }
 
 export enum GadgetSizes {

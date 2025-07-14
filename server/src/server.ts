@@ -48,18 +48,19 @@ const start = async () => {
           await coll.createSearchIndex({
             name: wantedName,
             definition: {
-              fields: [
-                {
-                  type: 'vector',
-                  path: 'embedding',
-                  numDimensions: 1536,
-                  similarity: 'cosine',
+              mappings: {
+                dynamic: true,
+                fields: {
+                  embedding: {
+                    type: 'knnVector',
+                    dimensions: 1536,
+                    similarity: 'cosine',
+                  },
+                  content: {
+                    type: 'string',
+                  },
                 },
-                {
-                  type: 'string',
-                  path: 'content',
-                },
-              ],
+              },
             },
           });
 

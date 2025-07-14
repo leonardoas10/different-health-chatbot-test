@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 
 import GenericAnimation from '../genericAnimation/GenericAnimation.component';
 import { InformativeGadget } from './components/informativeGadget/InformativeGadget.component';
+import { ChatbotGadget } from './components/chatbotGadget/ChatbotGadget.component';
 import GadgetContext from './Gadget.context';
 import {
   GadgetBackgrounds,
@@ -28,6 +29,8 @@ export const Gadget = ({
 
   const handleType = (): React.ReactElement => {
     switch (type) {
+      case GadgetTypes.chatbot:
+        return <ChatbotGadget onSendMessage={data?.onSendMessage || (() => Promise.resolve(''))} />;
       case GadgetTypes.informative:
       default:
         return <InformativeGadget />;
