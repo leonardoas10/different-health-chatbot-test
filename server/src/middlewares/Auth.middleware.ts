@@ -1,25 +1,28 @@
 import jwt from 'jsonwebtoken';
 
+const JWT_SECRET = process.env.JWT_SECRET || 'test';
+
 export const AuthMiddleware = async (request, reply) => {
   const { authorization } = request.headers;
 
-  // if (!authorization) {
-  //   reply.code(401).send({ message: 'Unauthorized', isKO: true });
-  //   return;
-  // }
+  if (!authorization) {
+    reply.code(401).send({ message: 'Token requerido', isKO: true });
+    return;
+  }
 
-  const [, token] = authorization?.split(' ') || [];
+  const [, token] = authorization.split(' ') || [];
+
+  if (!token) {
+    reply.code(401).send({ message: 'Token inválido', isKO: true });
+    return;
+  }
 
   try {
-    // For development purposes, create a mock user
-    // TODO: Replace with actual JWT verification
-    request.user = {
-      _id: '66955bbf8b55fd3b498af3ad', // Mock user ID from examples
-      email: 'test@example.com'
-    };
-
+    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    request.user = decoded;
     return;
   } catch (error) {
-    reply.code(401).send({ message: 'Unauthorized' });
+    console.error('JWT verification error:', error.message);
+    reply.code(401).send({ message: 'Token expirado o inválido', isKO: true });
   }
 };

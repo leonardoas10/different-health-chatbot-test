@@ -1,17 +1,14 @@
+require('dotenv').config();
+require('module-alias/register');
+
 import cors from '@fastify/cors';
 import { fastifyHelmet } from '@fastify/helmet';
-import dotenv from 'dotenv';
 import Fastify from 'fastify';
 import multer from 'fastify-multer';
 import mongoose, { ConnectOptions } from 'mongoose';
 
 import routes from './routes';
 import { DataSimulatorService } from './services/DataSimulator.service';
-
-require('dotenv').config();
-require('module-alias/register');
-
-dotenv.config();
 
 let server;
 

@@ -11,7 +11,7 @@ export interface ChatbotResponse {
 }
 
 export class ChatbotService {
-    private static readonly BASE_URL = 'http://localhost:8080/v1/chatbot';
+    private static readonly BASE_URL = `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'}/v1/chatbot`;
 
     static async sendMessage(data: ChatbotRequest): Promise<string> {
         try {

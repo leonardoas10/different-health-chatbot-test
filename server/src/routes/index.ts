@@ -1,9 +1,11 @@
 import { FastifyInstance } from 'fastify';
 
 import ChatbotRoute from '../modules/chatbot/Chatbot.route';
+import AuthRoute from '../modules/auth/Auth.route';
 
 async function routes(fastify: FastifyInstance) {
   fastify.register(ChatbotRoute);
+  fastify.register(AuthRoute);
 
   fastify.setErrorHandler((error, request, reply) => {
     if (error.code === 'LIMIT_FILE_SIZE') {
