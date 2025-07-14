@@ -19,6 +19,7 @@ export class ChatbotService {
                 `${this.BASE_URL}/chat`,
                 data
             )) as ChatbotResponse;
+
             return response.output;
         } catch (error) {
             console.error('Error sending message to chatbot:', error);

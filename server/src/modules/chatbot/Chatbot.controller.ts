@@ -13,7 +13,7 @@ export const ask = async (request: AskRequest, reply: FastifyReply) => {
       sessionId: '123', //TODO: change to a random string
     });
 
-    reply.send({ response: result.output });
+    reply.send({ output: result.output });
   } catch (error) {
     console.error('Error in chatbot controller:', error);
     reply.status(500).send({ error: 'Failed to get response' });

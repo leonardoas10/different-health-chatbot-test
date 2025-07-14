@@ -37,7 +37,7 @@ const getAgent = async (): Promise<RunnableWithMessageHistory<AgentInput, AgentO
   }
 
   const llm = new ChatOpenAI({
-    modelName: 'gpt-4-turbo-preview',
+    modelName: 'gpt-4o-mini',
     temperature: 0,
     openAIApiKey: process.env.OPENAI_API_KEY,
   });
