@@ -1,0 +1,62 @@
+@import "@/styles/settings/_screen-types";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 1;
+  border: 1px solid #1D212B;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: var(--distance-5, 16px);
+  background: var(--surface-bg-card-inactive, #171A21);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &___flex {
+    flex: 1;
+  }
+
+  &___flexTable {
+    flex: 1;
+    min-width: fit-content;
+  }
+
+  &___full {
+    width: 100%;
+  }
+
+  &___half {
+    flex: 0.5;
+  }
+
+  &___third {
+    flex: 0.33;
+  }
+}
+
+@media (max-width: 880px) {
+  .box {
+
+    &___flex,
+    &___flexTable,
+    &___full,
+    &___half,
+    &___third {
+      flex: unset;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .box {
+    grid-column: span 4 !important;
+  }
+}
+
+@container (max-width: 767px) {
+  .box {
+    grid-column: span 4 !important;
+  }
+}

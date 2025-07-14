@@ -1,0 +1,15 @@
+.section {
+  padding: 32px;
+  padding-bottom: 32px;
+
+  &__title {
+    margin-top: 12px;
+    border-bottom: 1px solid #20242F;
+    padding-bottom: 24px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 36px;
+    color: #FFF;
+  }
+}

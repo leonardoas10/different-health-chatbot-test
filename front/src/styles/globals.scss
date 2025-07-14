@@ -1,0 +1,167 @@
+:root {}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'NeueHaasGrotesk';
+  src: url('/fonts/Neue_Haas_Grotesk_Text_Pro_55_Roman.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayRoman.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayRomanItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 300;
+  font-style: normal;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style: normal;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayBlack.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style: italic;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayBlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 200;
+  font-style: normal;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayThin.ttf') format('truetype');
+}
+
+@font-face {
+  font-weight: 200;
+  font-style: italic;
+  font-family: 'NeueHaasDisplay';
+  src: url('/fonts/NeueHaasDisplayThinItalic.ttf') format('truetype');
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 8px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: rgb(120, 120, 120);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(160, 160, 160);
+  }
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0px;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: var(--black);
+  background-color: #12141a;
+  // font-family: 'NBInternational';
+  font-family: 'NeueHaasDisplay';
+  letter-spacing: 0.64px;
+}
+
+#__next {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+
+main {
+  min-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
+}
+
+p {
+  margin: 0px;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+button {
+  border: unset;
+  cursor: pointer;
+  font-family: 'NeueHaasGrotesk';
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100%;
+  height: 100%;
+}
+
+//Hide ReCAPTCHA
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

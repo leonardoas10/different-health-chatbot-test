@@ -1,0 +1,123 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 20px;
+  height: 20px;
+
+  .header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    &__title {
+      overflow: hidden;
+      margin: 0px;
+      width: 100%;
+      height: 100%;
+      padding-right: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.64px;
+      line-height: 20px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--text-subdued, #E9E9EA);
+
+      &___isBoxDark {
+        color: var(--dark-white);
+      }
+    }
+  }
+}
+
+
+.description {
+  margin-top: var(--distance-2, 4px);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  line-height: 20px;
+  color: var(--text-description, #BABBBF);
+}
+
+.contentWrapper {
+  position: relative;
+  height: 100%;
+  color: #FFF;
+
+  &__information {
+    display: block;
+    margin-top: var(--distance-2, 4px);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.64px;
+    line-height: 20px;
+    color: var(--text-description, #BABBBF);
+
+
+    &___hidden {
+      display: none;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    height: 100%;
+
+    &___children {
+      gap: var(--distance-3, 8px);
+      box-sizing: border-box;
+      padding-top: var(--distance-4);
+    }
+
+    &___hidden {
+      visibility: hidden;
+    }
+
+    .number {
+      flex: 1;
+      font-weight: bold;
+      font-size: 102px;
+      letter-spacing: 4px;
+      letter-spacing: -6px;
+      color: var(--highlight-text);
+
+      &__percentage {
+        font-weight: 400;
+      }
+
+      &___isBoxDark {
+        color: var(--white);
+      }
+    }
+
+    &__info {
+      display: flex;
+      align-items: flex-end;
+      flex: 1;
+      margin-bottom: 14px;
+      padding: 0 32px;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--info);
+    }
+
+    &__wrapperButton {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex: 1;
+      margin-bottom: 14px;
+      margin-left: 32px;
+    }
+  }
+}
