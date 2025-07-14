@@ -2,7 +2,7 @@
 
 ## 📋 Description
 
-This project fulfills the test requirements. For more detailed information, please refer to the PDF documentation.
+This project fulfills the test requirements. For more detailed information, please refer to the [PDF documentation](./test-requirements.pdf).
 
 ## 🚀 Getting Started
 
