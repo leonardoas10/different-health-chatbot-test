@@ -6,6 +6,7 @@ import multer from 'fastify-multer';
 import mongoose, { ConnectOptions } from 'mongoose';
 
 import routes from './routes';
+import { DataSimulatorService } from './services/DataSimulator.service';
 
 require('dotenv').config();
 require('module-alias/register');
@@ -68,6 +69,10 @@ const start = async () => {
         } else {
           console.log('🛈 Vector index already exists.');
         }
+
+        // Initialize data simulator for realistic health data
+        await DataSimulatorService.generateHistoricalData(7);
+        DataSimulatorService.start();
       })
       .catch((err) => console.error('Failed to connect to MongoDB', err));
 
