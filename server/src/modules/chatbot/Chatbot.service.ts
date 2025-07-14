@@ -9,8 +9,8 @@ import { AgentExecutor, createOpenAIToolsAgent } from 'langchain/agents';
 import { formatDocumentsAsString } from 'langchain/util/document';
 import mongoose from 'mongoose';
 
-import { ChatbotMessage } from '../../models/ChatbotMessage.model';
-import { getLatestBodyCompositionScan, getHRVTrends, getVO2MaxProgress, getWearableMetrics, getHealthTrendAnalysis } from './tools';
+import { ChatbotMessage } from '@/models/ChatbotMessage.model';
+import { getLatestBodyCompositionScan, getHRVTrends, getVO2MaxProgress, getWearableMetrics, getHealthTrendAnalysis } from '@/modules/chatbot/tools';
 
 interface AgentInput {
   input: string;

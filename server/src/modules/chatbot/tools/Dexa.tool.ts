@@ -2,7 +2,7 @@ import { tool } from '@langchain/core/tools';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-import DEXAResult from '../../../models/DEXAResult.model';
+import DEXAResult from '@/models/DEXAResult.model';
 
 const dexaToolSchema = z.object({
   userId: z.string().describe('The ID of the user for whom the scan is requested.'),

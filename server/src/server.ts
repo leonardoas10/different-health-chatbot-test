@@ -7,8 +7,8 @@ import Fastify from 'fastify';
 import multer from 'fastify-multer';
 import mongoose, { ConnectOptions } from 'mongoose';
 
-import routes from './routes';
-import { DataSimulatorService } from './services/DataSimulator.service';
+import { DataSimulatorService } from '@/services/DataSimulator.service';
+import routes from '@/routes/index';
 
 let server;
 

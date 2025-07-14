@@ -2,7 +2,7 @@ import { tool } from '@langchain/core/tools';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-import { WearableData } from '../../../models/WearableData.model';
+import { WearableData } from '@/models/WearableData.model';
 
 const wearableToolSchema = z.object({
   userId: z.string().describe('The ID of the user for whom wearable data is requested.'),

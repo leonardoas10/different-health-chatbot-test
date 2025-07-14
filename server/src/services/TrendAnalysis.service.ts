@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { WearableData } from '../models/WearableData.model';
-import { HRVData } from '../models/HRVData.model';
-import DEXAResult from '../models/DEXAResult.model';
+import { WearableData } from '@/models/WearableData.model';
+import { HRVData } from '@/models/HRVData.model';
+import DEXAResult from '@/models/DEXAResult.model';
 
 export class TrendAnalysisService {
   static async analyzeHealthTrends(userId: string, days: number = 30) {

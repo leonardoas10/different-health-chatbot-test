@@ -1,7 +1,7 @@
 import { FastifyReply } from 'fastify';
 
-import { AskRequest } from './Chatbot.interface';
-import { ChatbotService } from './Chatbot.service';
+import { AskRequest } from '@/modules/chatbot/Chatbot.interface';
+import { ChatbotService } from '@/modules/chatbot/Chatbot.service';
 
 export const ask = async (request: AskRequest, reply: FastifyReply) => {
   try {

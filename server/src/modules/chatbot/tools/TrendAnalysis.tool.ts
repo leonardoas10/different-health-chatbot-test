@@ -2,7 +2,7 @@ import { tool } from '@langchain/core/tools';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-import { TrendAnalysisService } from '../../../services/TrendAnalysis.service';
+import { TrendAnalysisService } from '@/services/TrendAnalysis.service';
 
 const trendAnalysisToolSchema = z.object({
   userId: z.string().describe('The ID of the user for trend analysis.'),

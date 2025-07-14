@@ -1,4 +1,4 @@
-import { AuthRequest } from '../../interfaces/AuthRequest.interface';
+import { AuthRequest } from '@/interfaces/AuthRequest.interface';
 
 export type AskRequest = AuthRequest<{
   Body: {

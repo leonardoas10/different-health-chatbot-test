@@ -16,18 +16,18 @@
     "esModuleInterop": true,
     "noEmit": false,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
-    // "paths": {
-    //   "@/middlewares/*": ["src/middlewares/*"],
-    //   "@/models/*": ["src/models/*"],
-    //   "@/modules/*": ["src/modules/*"],
-    //   "@/routes/*": ["src/routes/*"],
-    //   "@/services/*": ["src/services/*"],
-    //   "@/utils/*": ["src/utils/*"],
-    //   "@/interfaces/*": ["src/shared/interfaces/*"],
-    //   "@/dtos/*": ["src/shared/dtos/*"],
-    //   "@/enums/*": ["src/shared/enums/*"]
-    // }
+    "noUnusedParameters": false,
+    "paths": {
+      "@/middlewares/*": ["src/middlewares/*"],
+      "@/models/*": ["src/models/*"],
+      "@/modules/*": ["src/modules/*"],
+      "@/routes/*": ["src/routes/*"],
+      "@/services/*": ["src/services/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/interfaces/*": ["src/interfaces/*"],
+      "@/dtos/*": ["src/shared/dtos/*"],
+      "@/enums/*": ["src/shared/enums/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/shared/interfaces/AppType.enum.ts", "src/interfaces/AuthRequest.interface.ts"],
   "exclude": ["node_modules", "dist", "test"],

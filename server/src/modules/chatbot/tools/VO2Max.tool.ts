@@ -2,7 +2,7 @@ import { tool } from '@langchain/core/tools';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-import { VO2MaxData } from '../../../models/VO2MaxData.model';
+import { VO2MaxData } from '@/models/VO2MaxData.model';
 
 const vo2MaxToolSchema = z.object({
   userId: z.string().describe('The ID of the user for whom VO2 Max data is requested.'),

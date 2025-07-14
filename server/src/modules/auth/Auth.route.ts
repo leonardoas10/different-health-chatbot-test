@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { AuthController } from './Auth.controller';
+import { AuthController } from '@/modules/auth/Auth.controller';
 
 export default function AuthRoute(fastify: FastifyInstance, options: any, done: (err?: Error) => void) {
   fastify.get('/auth/mock-login', async (request, reply) => {

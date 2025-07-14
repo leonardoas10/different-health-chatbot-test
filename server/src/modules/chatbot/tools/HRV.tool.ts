@@ -2,7 +2,7 @@ import { tool } from '@langchain/core/tools';
 import mongoose from 'mongoose';
 import { z } from 'zod';
 
-import { HRVData } from '../../../models/HRVData.model';
+import { HRVData } from '@/models/HRVData.model';
 
 const hrvToolSchema = z.object({
   userId: z.string().describe('The ID of the user for whom HRV data is requested.'),

@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify';
 
-import ChatbotRoute from '../modules/chatbot/Chatbot.route';
-import AuthRoute from '../modules/auth/Auth.route';
+import ChatbotRoute from '@/modules/chatbot/Chatbot.route';
+import AuthRoute from '@/modules/auth/Auth.route';
 
 async function routes(fastify: FastifyInstance) {
   fastify.register(ChatbotRoute);

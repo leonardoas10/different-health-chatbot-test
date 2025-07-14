@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { WearableData } from '../models/WearableData.model';
+import { WearableData } from '@/models/WearableData.model';
 
 export class DataSimulatorService {
   private static isRunning = false;
