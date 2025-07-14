@@ -7,7 +7,7 @@ import { AskRequest } from './Chatbot.interface';
 
 export default function ChatbotRoute(fastify: FastifyInstance, options: any, done: (err?: Error) => void) {
   fastify.post(
-    `${CHATBOT_ROUTE_PREFIX}/ask`,
+    `${CHATBOT_ROUTE_PREFIX}/chat`,
     {
       preHandler: [AuthMiddleware],
     },

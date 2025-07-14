@@ -8,10 +8,15 @@ export const AuthMiddleware = async (request, reply) => {
   //   return;
   // }
 
-  const [, token] = authorization.split(' ');
+  const [, token] = authorization?.split(' ') || [];
 
   try {
-    // TODO: Implement auth middleware
+    // For development purposes, create a mock user
+    // TODO: Replace with actual JWT verification
+    request.user = {
+      _id: '66955bbf8b55fd3b498af3ad', // Mock user ID from examples
+      email: 'test@example.com'
+    };
 
     return;
   } catch (error) {

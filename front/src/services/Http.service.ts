@@ -8,6 +8,10 @@ const get = async (url: string) => {
 const post = async (url: string, body: any) => {
   const response = await fetch(url, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer dummy-token"
+    },
     body: JSON.stringify(body),
   });
   return response.json();

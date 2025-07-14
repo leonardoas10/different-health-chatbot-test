@@ -1,15 +1,9 @@
-import {
-  ChatPromptTemplate,
-  MessagesPlaceholder
-} from '@langchain/core/prompts';
-import {
-  RunnablePassthrough,
-  RunnableWithMessageHistory
-} from '@langchain/core/runnables';
-import {
-  MongoDBAtlasVectorSearch,
-  MongoDBChatMessageHistory
-} from '@langchain/mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { ChatPromptTemplate, MessagesPlaceholder } from '@langchain/core/prompts';
+import { RunnablePassthrough, RunnableWithMessageHistory } from '@langchain/core/runnables';
+import { MongoDBAtlasVectorSearch, MongoDBChatMessageHistory } from '@langchain/mongodb';
 import { ChatOpenAI, OpenAIEmbeddings } from '@langchain/openai';
 import { AgentExecutor, createOpenAIToolsAgent } from 'langchain/agents';
 import { formatDocumentsAsString } from 'langchain/util/document';
@@ -29,14 +23,24 @@ interface AgentOutput {
 
 const tools: any[] = [getLatestBodyCompositionScan];
 
+// Debug: Check if OpenAI API key is loaded
+console.log('OpenAI API Key loaded:', !!process.env.OPENAI_API_KEY);
+console.log('OpenAI API Key prefix:', process.env.OPENAI_API_KEY?.substring(0, 10));
+
 let agentWithChatHistory: any = null;
-const embeddings = new OpenAIEmbeddings();
+const embeddings = new OpenAIEmbeddings({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+});
 const getAgent = async (): Promise<RunnableWithMessageHistory<AgentInput, AgentOutput>> => {
   if (agentWithChatHistory) {
     return agentWithChatHistory;
   }
 
-  const llm = new ChatOpenAI({ modelName: 'gpt-4-turbo-preview', temperature: 0 });
+  const llm = new ChatOpenAI({
+    modelName: 'gpt-4-turbo-preview',
+    temperature: 0,
+    openAIApiKey: process.env.OPENAI_API_KEY,
+  });
   const nativeClient = mongoose.connection.getClient();
 
   const messageCollection = nativeClient.db('dev').collection('chatbotmessages');
@@ -83,7 +87,19 @@ const getAgent = async (): Promise<RunnableWithMessageHistory<AgentInput, AgentO
   const runnableAgent: any = RunnablePassthrough.assign({
     context: async (input: Record<string, unknown>) => {
       const agentInput = input as unknown as AgentInput;
-      return retriever.pipe(formatDocumentsAsString).invoke(agentInput.input);
+      console.log('Context input:', agentInput);
+
+      if (!agentInput?.input || typeof agentInput.input !== 'string') {
+        console.log('Invalid input for context retrieval:', agentInput);
+        return '';
+      }
+
+      try {
+        return await retriever.pipe(formatDocumentsAsString).invoke(agentInput.input);
+      } catch (error) {
+        console.error('Error in context retrieval:', error);
+        return '';
+      }
     },
   }).pipe(agentExecutor);
 
@@ -106,6 +122,10 @@ const getAgent = async (): Promise<RunnableWithMessageHistory<AgentInput, AgentO
 
 const invoke = async (params: { input: string; sessionId: string; userId: string }): Promise<AgentOutput> => {
   const { input, sessionId, userId } = params;
+
+  if (!input || typeof input !== 'string') {
+    throw new Error('Invalid input: input must be a non-empty string');
+  }
 
   const agent = await getAgent();
 

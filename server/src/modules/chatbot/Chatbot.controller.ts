@@ -5,10 +5,10 @@ import { ChatbotService } from './Chatbot.service';
 
 export const ask = async (request: AskRequest, reply: FastifyReply) => {
   try {
-    const { message } = request.body;
+    const { input } = request.body;
 
     const result = await ChatbotService.invoke({
-      input: message,
+      input,
       userId: request.user._id.toString(),
       sessionId: '123', //TODO: change to a random string
     });
